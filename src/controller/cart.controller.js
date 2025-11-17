@@ -9,7 +9,7 @@ class CartClass {
     const {
       userId,
       productId,
-      // quantity,
+      quantity,
     } = req.body;
     // const userId = req.userId;
     console.log(userId);
@@ -18,9 +18,9 @@ class CartClass {
       userId === undefined &&
       productId === "" &&
       productId === undefined
-      // &&
-      // quantity === 0 &&
-      // quantity === undefined
+      &&
+      quantity === 0 &&
+      quantity === undefined
     ) {
       throw new ApiError(400, "productId or quantity are required");
     }
@@ -29,7 +29,7 @@ class CartClass {
     const cart = await Cart.create({
       userId,
       productId,
-      // quantity,
+      quantity,
     });
 
     const createdCart = Cart.findById(cart._id);
